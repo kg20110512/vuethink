@@ -257,13 +257,23 @@ INSERT INTO `oa_system_config` VALUES ('4', 'IDENTIFYING_CODE', '0', '0', '1');
 
 DROP TABLE IF EXISTS `oa_system_topic`;
 CREATE TABLE `oa_system_topic` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '配置ID',
-  `name` varchar(50) DEFAULT '',
-  `value` varchar(100) DEFAULT '' COMMENT '配置值',
-  `group` tinyint(4) unsigned DEFAULT '0' COMMENT '配置分组',
-  `need_auth` tinyint(4) DEFAULT '1' COMMENT '1需要登录后才能获取，0不需要登录即可获取',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `参数名` (`name`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='【配置】系统配置表';
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `title` varchar(30) DEFAULT '',
+  `top` BOOL DEFAULT FALSE ,
+  `tab` VARCHAR(10) DEFAULT '',
+  `ups` SMALLINT DEFAULT 0 COMMENT '点赞',
+  `reply_count` SMALLINT DEFAULT 0,
+  `visit_count` SMALLINT DEFAULT 0,
+  `last_reply_at` TIMESTAMP DEFAULT '0000-00-00 00:00:00',
+#   `replies` SMALLINT DEFAULT 0,
+  `content` TEXT,
+  `author_loginname` VARCHAR(20) ,
+  `author_avatar_url` VARCHAR(50),
+  `create_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `update_time` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='topic table desc';
+
+
 
 

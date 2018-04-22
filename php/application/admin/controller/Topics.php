@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: jhy
+ * Topic: jhy
  * Date: 2018/4/19
  * Time: 16:53
  */
@@ -34,5 +34,7 @@ class Topics extends ApiCommon
         }
         return resultArray(['data' => $data]);
     }
+
+
 
 }

@@ -98,6 +98,14 @@ const routes = [
       { path: 'users/add', component: usersAdd, name: 'usersAdd', meta: { hideLeft: false, module: 'Administrative', menu: 'users' }},
       { path: 'users/edit/:id', component: usersEdit, name: 'usersEdit', meta: { hideLeft: false, module: 'Administrative', menu: 'users' }}
     ]
+  },
+  {
+      path: '/home',
+      component: Home,
+      children: [
+          { path: 'topics/list', component: topicsList, name: 'topicsList', meta: { hideLeft: false, module: 'Administrative', menu: 'topics' }},
+      ]
   }
+
 ]
 export default routes
