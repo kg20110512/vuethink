@@ -3,11 +3,11 @@
 		<div class="m-b-20 ovf-hd">
 			<div class="fl" v-show="addShow">
 				<router-link class="btn-link-large add-btn" to="add">
-					<i class="el-icon-plus"></i>&nbsp;&nbsp;添加用户
+					<i class="el-icon-plus"></i>&nbsp;&nbsp;添加通知
 				</router-link>
 			</div>
 			<div class="fl w-200 m-l-30">
-				<el-input placeholder="请输入用户名" v-model="keywords">
+				<el-input placeholder="请输入标题" v-model="keywords">
 					<el-button slot="append" icon="search" @click="search()"></el-button>
 				</el-input>
 			</div>
@@ -107,7 +107,7 @@
           type: 'warning'
         }).then(() => {
           _g.openGlobalLoading()
-          this.apiDelete('admin/users/', item.id).then((res) => {
+          this.apiDelete('admin/notices/', item.id).then((res) => {
             _g.closeGlobalLoading()
             this.handelResponse(res, (data) => {
               _g.toastMsg('success', '删除成功')
@@ -129,7 +129,7 @@
             limit: this.limit
           }
         }
-        this.apiGet('admin/users', data).then((res) => {
+        this.apiGet('admin/notices', data).then((res) => {
           console.log('res = ', _g.j2s(res))
           this.handelResponse(res, (data) => {
             this.tableData = data.list
